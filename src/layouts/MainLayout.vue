@@ -49,7 +49,7 @@ const linksList = [
     title: 'Home',
     caption: 'Pagina Inicial',
     icon: 'home',
-    link: ''
+    link: 'home'
   },
   {
     title: 'Principal',
@@ -67,7 +67,7 @@ const linksList = [
     title: 'Sair',
     caption: 'Sair',
     icon: 'logout',
-    link: ''
+    link: 'login'
   }
 ]
 

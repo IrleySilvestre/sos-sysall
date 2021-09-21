@@ -3,13 +3,16 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/LoginLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Login.vue') }]
+    children: [
+      { path: '', name: 'login', component: () => import('pages/Login.vue') },
+      { path: '/forgot-password', name: 'reloadPassword', component: () => import('pages/ForgotPassword.vue') }
+    ]
   },
   // Rota autenticada
   {
     path: '/auth',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Index.vue') }]
+    children: [{ path: '', name: 'home', component: () => import('pages/Index.vue') }]
   },
 
   // Always leave this as last one,

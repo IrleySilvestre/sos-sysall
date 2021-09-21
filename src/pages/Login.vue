@@ -1,15 +1,18 @@
 <template>
   <q-page class="flex column flex-center">
     <q-card class="my-card">
+
       <img src="~assets/logo-sysall.png">
-
-      <q-card-section>
-        <div class="text-h6 text-center" style="color:#006884;">Login</div>
-      </q-card-section>
-
       <q-card-section class="flex column ">
-        <q-input outlined v-model="name" label="Email:" />
+        <q-input outlined v-model="name" label="Email:">
+          <template v-slot:prepend>
+            <q-icon name="email" />
+          </template>
+        </q-input>
         <q-input label="Senha:" class="q-mt-sm" outlined v-model="password" :type="isPwd ? 'password' : 'text'">
+        <template v-slot:prepend>
+          <q-icon name="lock" />
+        </template>
         <template v-slot:append>
           <q-icon
             :name="isPwd ? 'visibility_off' : 'visibility'"
@@ -17,8 +20,8 @@
             @click="isPwd = !isPwd"/>
         </template>
         </q-input>
-        <q-btn class="btn-login" label="Acessar" />
-        <p class="text-center q-mt-sm">Esqueci minha senha</p>
+        <q-btn class="btn-login" label="Acessar" @click="$router.push({name:'home'})"  />
+        <p class="text-center q-mt-sm" @click="$router.push({name:'reloadPassword'})">Esqueci minha senha</p>
       </q-card-section>
 
     </q-card>
@@ -35,7 +38,7 @@ export default defineComponent({
 
   setup () {
     return {
-      name: '',
+      name: ref(''),
       password: ref(''),
       isPwd: ref(true)
     }
@@ -64,5 +67,9 @@ export default defineComponent({
     cursor: pointer;
     color: #006884;
     font-weight: bold;
+    transition: transform 1s;
+  }
+  p:hover{
+    transform: scale(1.08);
   }
 </style>

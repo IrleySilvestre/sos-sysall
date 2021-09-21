@@ -1,10 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <img
-      alt="Logo Syall"
-      src="~assets/logo-sysall.png"
-      style="width: 200px; height: 200px"
-    >
+    <h1>Home</h1>
   </q-page>
 
 </template>
